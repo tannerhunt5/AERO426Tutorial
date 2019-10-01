@@ -2,6 +2,10 @@
 
 #pragma once
 
+#include <vector>
+#include "SolarPanel.h"
+
+#include "Engine.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "baseSystem.generated.h"
@@ -14,6 +18,10 @@ class AERO426TUTORIAL_API AbaseSystem : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AbaseSystem();
+
+	float calculate_components_power();
+	TArray<USolarPanel*> components;
+	std::vector<USolarPanel *> attached_panels;
 
 protected:
 	// Called when the game starts or when spawned

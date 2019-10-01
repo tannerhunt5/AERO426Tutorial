@@ -14,13 +14,30 @@ AbaseSystem::AbaseSystem()
 void AbaseSystem::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	GetComponents<USolarPanel>(components);
+	for (auto& comp : components)
+	{
+		AbaseSystem::attached_panels.push_back(comp); // Add solar panels to the components vector
+	}
 }
 
 // Called every frame
 void AbaseSystem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	float power = calculate_components_power();
+	// UE_LOG(LogTemp, Warning, TEXT("The current net power is: %f"), power);
+	if (GEngine)
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::Printf(TEXT("Net Power: %f"), power));
 }
 
+float AbaseSystem::calculate_components_power()
+{
+    // Solar Panels
+	float solar_power = 0.0;
+	for (auto& comp : components)
+	{
+		solar_power += comp->calculate_power(); // Add solar panels to the components vector
+	}
+	return solar_power;
+}
