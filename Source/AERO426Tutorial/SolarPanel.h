@@ -29,7 +29,6 @@ public:
 	UFUNCTION()
 	float calculate_power();
 
-	UPROPERTY(EditAnywhere)
-	UStaticMeshComponent* PanelMesh;
+
 
 };

@@ -4,7 +4,6 @@
 
 #include <vector>
 #include "SolarPanel.h"
-
 #include "Engine.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
@@ -19,9 +18,14 @@ public:
 	// Sets default values for this actor's properties
 	AbaseSystem();
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	USceneComponent* RootSceneComponent;
+
 	float calculate_components_power();
 	TArray<USolarPanel*> components;
 	std::vector<USolarPanel *> attached_panels;
+
+
 
 protected:
 	// Called when the game starts or when spawned

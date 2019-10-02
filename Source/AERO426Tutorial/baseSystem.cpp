@@ -8,6 +8,8 @@ AbaseSystem::AbaseSystem()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	RootSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootScene"));
+	RootComponent = RootSceneComponent;
 }
 
 // Called when the game starts or when spawned
