@@ -24,11 +24,11 @@ public:
 	float efficiency = 0.9;
 
 	UPROPERTY(EditAnywhere)
-	float area = 4;
+	float area = 1;
 
 	UFUNCTION()
 	float calculate_power();
 
-
+	
 
 };
