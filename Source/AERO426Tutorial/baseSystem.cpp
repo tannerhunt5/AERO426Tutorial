@@ -16,11 +16,7 @@ AbaseSystem::AbaseSystem()
 void AbaseSystem::BeginPlay()
 {
 	Super::BeginPlay();
-	GetComponents<USolarPanel>(components);
-	for (auto& comp : components)
-	{
-		AbaseSystem::attached_panels.push_back(comp); // Add solar panels to the components vector
-	}
+	GetComponents<USolarPanel>(components); // Populates TArray with pointers to all instances of USolarPanel currently attached
 }
 
 // Called every frame
@@ -30,7 +26,8 @@ void AbaseSystem::Tick(float DeltaTime)
 	float power = calculate_components_power();
 	// UE_LOG(LogTemp, Warning, TEXT("The current net power is: %f"), power);
 	if (GEngine)
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::Printf(TEXT("Net Power: %f"), power));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, FString::Printf(TEXT("Net Power: %f W"), power));
+	    // Outputs power state to the screen
 }
 
 float AbaseSystem::calculate_components_power()
@@ -39,7 +36,7 @@ float AbaseSystem::calculate_components_power()
 	float solar_power = 0.0;
 	for (auto& comp : components)
 	{
-		solar_power += comp->calculate_power(); // Add solar panels to the components vector
+		solar_power += comp->calculate_power(); // Sums the power contribution of each solar panel
 	}
 	return solar_power;
 }

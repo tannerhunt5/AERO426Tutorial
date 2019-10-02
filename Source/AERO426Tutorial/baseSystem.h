@@ -23,9 +23,6 @@ public:
 
 	float calculate_components_power();
 	TArray<USolarPanel*> components;
-	std::vector<USolarPanel *> attached_panels;
-
-
 
 protected:
 	// Called when the game starts or when spawned
