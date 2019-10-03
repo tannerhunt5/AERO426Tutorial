@@ -1,15 +1,12 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// AERO 426 Workshop
 
 #pragma once
 
-#include <vector>
 #include "CoreMinimal.h"
 #include "Components/PrimitiveComponent.h"
 #include "SolarPanel.generated.h"
 
-/**
- * 
- */
+
 UCLASS(ClassGroup = (SystemComponent), meta = (BlueprintSpawnableComponent))
 class AERO426TUTORIAL_API USolarPanel : public UPrimitiveComponent
 {
@@ -21,14 +18,14 @@ public:
 
 	// Parameters
 	UPROPERTY(EditAnywhere)
+	float area = 1;
+
+	UPROPERTY(EditAnywhere)
 	float efficiency = 0.9;
 
 	UPROPERTY(EditAnywhere)
-	float area = 1;
+	float energy_flux = 100; // W/m^2
 
 	UFUNCTION()
 	float calculate_power();
-
-	
-
 };

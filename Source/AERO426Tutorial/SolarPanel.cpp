@@ -1,11 +1,8 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// AERO 426 Workshop
 
 #include "SolarPanel.h"
 
-USolarPanel::USolarPanel()
-{
-
-}
+USolarPanel::USolarPanel() {}
 
 float USolarPanel::calculate_power()
 {
@@ -23,5 +20,5 @@ float USolarPanel::calculate_power()
 		sunlight_angle_factor = 0;
 	}
 	
-	return (-sunlight_angle_factor*efficiency*area);
+	return (-sunlight_angle_factor*energy_flux*efficiency*area);
 }
