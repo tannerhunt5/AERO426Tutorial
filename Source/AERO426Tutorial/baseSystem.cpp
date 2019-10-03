@@ -43,7 +43,7 @@ float AbaseSystem::calculate_components_power() // Sum the power input or
 {
     // Solar Panels (only component for now)
 	float solar_power = 0.0;
-	for (auto& panel : attached_panels)
+	for (auto& panel : attached_panels) // loop through each attached solar panel in the list
 	{
 		solar_power += panel->calculate_power();
 		// Sums the power contribution of each solar panel
